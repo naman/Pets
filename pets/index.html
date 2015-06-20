@@ -65,29 +65,30 @@
         </div>
       </div>
     
-    <br/>
+
     
-     <div class="row container">
+<!--      <div class="row container">
        
           <div id="slider" class="ui-slider">
             <div class="ui-slider-segment"></div>
             <div class="ui-slider-segment"></div>
             <div class="ui-slider-segment"></div>
-        </div> <!-- /sliders -->
-    </div>
-       <div class="container" id="timer">
-        bub
+        </div> 
+    </div> -->
+      
+       <div class="container" style="margin-left:60px" id="timer">
+        
        </div>
-       
-       <div class="container">
-         <button type="button" onclick="moveForward()" class="btn btn-default btn-sm">Give Up!</button>
+       <br/>
+       <div class="container"  style="margin-left:64px">
+         <button type="button" id="giveup" onclick="moveForward()" class="btn btn-default btn-sm" style="background-color:fff">Give Up!</button>
        </div>
        </div>
 
     <!-- /.container -->
     
     
-</div>
+</div> <!-- /.main_page -->
     
     <script>
   function changeColor(newColor) {
@@ -121,7 +122,7 @@ if (r == true) {
     timer(
     60000, // milliseconds
     function(timeleft) { // called every step to update the visible countdown
-        document.getElementById('timer').innerHTML = "<h6>"+timeleft+"s</h6>";
+        document.getElementById('timer').innerHTML = "<h1>" +timeleft+"s</h1>";
     },
     function() { // what to do after
         alert("Congrats!");
@@ -129,11 +130,18 @@ if (r == true) {
        
         text.innerHTML = "Hurray!";
          changeColor('#27ae60');
+        document.getElementById('timer').style.display="";
+        document.getElementById('giveup').style.display="";
     }
 );
     
     </script>
-    
+       document.getElementById('main_page');
+      <script>
+          
+      
+      </script>  
+      
     <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
     <script src="js/vendor/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
