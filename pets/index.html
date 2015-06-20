@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Flat UI Free 101 Template</title>
+    <title>Pets</title>
     <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0">
   <script src="app.js" defer></script>
     <!-- Loading Bootstrap -->
@@ -26,6 +26,10 @@
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
+          <div class="demo-icons">
+       
+        </div><!-- /.demo-content -->
+      </div><!-- /.demo-icons -->
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
@@ -33,7 +37,13 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">Pets.</a>
+        <div class="demo-icons"> 
+        <div class="demo-content">
+<!--              <a><span class="fui-info-circle"></span></a> -->
+<!--              <a><span class="fui-alert-circle"></span></a> -->
+        </div>
       </div>
+         </div>  
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse">
@@ -46,22 +56,82 @@
       </div><!-- /.navbar-collapse -->
     </div>
     </nav>
-
-    <div class="container">
-        <h6 align="center" style="margin-top:30px">Hello!</h6>
-    </div>
+<div class="container" id="main_page"><br/><br/>
+        <h6 align="center" style="color:#2980b9" id="greeting_text">Hello!</h6>
+   
        <div class="center demo-illustrations">
         <div class="center demo-content">
           <div><img src="img/icons/svg/chat.svg" alt="Chat"></div>
     
         </div>
       </div>
+     <div class="row container">
+       
+          <div id="slider" class="ui-slider">
+            <div class="ui-slider-segment"></div>
+            <div class="ui-slider-segment"></div>
+            <div class="ui-slider-segment"></div>
+        </div> <!-- /sliders -->
 
-
+       <div class="container" id="timer">
+        bub
+       </div>
+       
+       <div class="container">
+         <button type="button" onclick="moveForward()" class="btn btn-default btn-sm">Give Up!</button>
+       </div>
+       </div>
 
     <!-- /.container -->
+    
+    
 </div>
-
+    
+    <script>
+  function changeColor(newColor) {
+    var elem = document.getElementById("greeting_text");
+    elem.style.color = newColor;
+  }
+  </script>
+    <script>
+        function moveForward(){
+       var r = confirm("Are you giving up?");
+if (r == true) {
+    var text = document.getElementById('greeting_text');
+    text.innerHTML = "Your Pet Died! :(";
+    changeColor('#c0392b');
+  //  document.getElementById('timer').style.display="";
+}
+        }
+    </script>
+    
+  <script>function timer(time,update,complete) {
+    var start = new Date().getTime();
+    var interval = setInterval(function() {
+        var now = time-(new Date().getTime()-start);
+        if( now <= 0) {
+            clearInterval(interval);
+            complete();
+        }
+        else update(Math.floor(now/1000));
+    },100); // the smaller this number, the more accurate the timer will be
+}
+    timer(
+    60000, // milliseconds
+    function(timeleft) { // called every step to update the visible countdown
+        document.getElementById('timer').innerHTML = "<h6>"+timeleft+"s</h6>";
+    },
+    function() { // what to do after
+        alert("Congrats!");
+        var text = document.getElementById('greeting_text');
+       
+        text.innerHTML = "Hurray!";
+         changeColor('#27ae60');
+    }
+);
+    
+    </script>
+    
     <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
     <script src="js/vendor/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
